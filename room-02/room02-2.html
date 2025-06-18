@@ -6,20 +6,37 @@
   <title>남겨진 물건의 방</title>
 
   <style>
-    html{word-break: keep-all;
-
-      
-        
+    html{word-break: keep-all;   
     }
 
+    html, body{
+      height: 100%;
+      margin: 0;
+      padding: 0;
 
+
+    }
+
+    .c{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-bottom: 40px;
+      height: 700px;
+    }
 
     .bg-img{
-      background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGY0M24xZnc3dTJzejlrYzIxeGcxNjUzbW0waW9saGcxNzI1MHplayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q73dx5T7P9kCOm623k/giphy.gif');background-size: 19%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+
+      background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGY0M24xZnc3dTJzejlrYzIxeGcxNjUzbW0waW9saGcxNzI1MHplayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q73dx5T7P9kCOm623k/giphy.gif');
+      background-size: 19%;
           background-attachment: fixed;
           background-position: center;
-
-         min-height: 100vh;
 
         z-index: -10;
           
@@ -173,18 +190,20 @@
 
   <div class="bg-img"></div>
 
-  <div class="controls-container">
-    <input id="inputBox" placeholder="텍스트 입력 후 Enter" />
-    <a href="../room-03/room03-1.html">
-        <img src="../img/exit.png"><p>다음 방으로</p>
-    </a>
-  </div>
-  
-  <div id="boxArea">
-    <canvas id="canvas"></canvas>
-     <div id="fixedText">요즘 손이 안 가는 것, 사놓고 <br>전시만 하는 것, 산 걸 까먹은 것•••<br>생각나는 만큼 적어보자</div>
-  </div>
+    <div class="c">
+      <div class="controls-container">
+        <input id="inputBox" placeholder="텍스트 입력 후 Enter" />
+        <a href="../room-03/room03-1.html">
+            <img src="../img/exit.png"><p>다음 방으로</p>
+        </a>
+      </div>
+      
+      <div id="boxArea">
+        <canvas id="canvas"></canvas>
+         <div id="fixedText">요즘 손이 안 가는 것, 사놓고 <br>전시만 하는 것, 산 걸 까먹은 것•••<br>생각나는 만큼 적어보자</div>
+      </div>
 
+    </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
