@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>남겨진 물건의 방</title>
+
+  <style>
+    html{word-break: keep-all;
+
+      
+        
+    }
+
+
+
+    .bg-img{
+      background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGY0M24xZnc3dTJzejlrYzIxeGcxNjUzbW0waW9saGcxNzI1MHplayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q73dx5T7P9kCOm623k/giphy.gif');background-size: 19%;
+          background-attachment: fixed;
+          background-position: center;
+
+         min-height: 100vh;
+
+        z-index: -10;
+          
+  -webkit-filter: blur(3px);
+        filter: grayscale(60%) blur(3px);
+
+        opacity: 0.9;
+        background-color: black;
+
+
+        }
+  
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') 
+      format('opentype');
+    font-weight: normal;
+    font-style: normal;}
+
+
+
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      background-color: rgba(255, 255, 255, 0.27);
+    backdrop-filter: blur(8px);
+    filter: drop-shadow(0 0 0.5rem #868686);
+
+
+
+    }
+
+    #fixedText{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      font-size: 20px;
+      text-align: center;
+      color: #aad4f7; 
+       
+      font-family: 'GmarketSansMedium';
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    #boxArea {
+      width: 700px;
+      height: 500px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 150px;
+      border-radius: 20px;
+      filter: drop-shadow(0 0 0.2rem #868686);
+      overflow: hidden;
+      font-family: 'GmarketSansMedium';
+    }
+
+
+    #inputBox {
+  
+      width: 400px;
+      max-width: 400px;
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid white;
+      border-radius: 10px;
+      color: black;
+      font-family: 'GmarketSansMedium';
+      background-color: white;
+      z-index: 10;
+      outline-width:0px;
+
+    }
+
+  
+    .controls-container {
+    position: fixed;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      margin-top: 20px; 
+      width: 700px; 
+
+      gap: 60px;
+      }
+
+    .controls-container a {
+      gap: 10px;
+      
+        display: flex; 
+        align-items: center; 
+        text-decoration: none;
+        color: white;
+      
+      border-radius: 10px;
+      padding: 5px 15px;
+        margin-left: 10px; 
+        flex-shrink: 0;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        filter: drop-shadow(0 0 0.2rem #d3d3d3)
+      }
+
+    .controls-container a:hover {
+            
+            transition: all 0.7s;
+            box-shadow: 0 0 10px #454545;
+
+        }
+    .controls-container a img {
+        width: 42px; 
+        height: auto;
+        }
+  
+    .controls-container a p {
+        margin: 0;
+        font-size: 16px;
+        font-family: 'GmarketSansMedium';
+     
+        }
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="bg-img"></div>
+
+  <div class="controls-container">
+    <input id="inputBox" placeholder="텍스트 입력 후 Enter" />
+    <a href="../room-03/room03-1.html">
+        <img src="../img/exit.png"><p>다음 방으로</p>
+    </a>
+  </div>
+  
+  <div id="boxArea">
+    <canvas id="canvas"></canvas>
+     <div id="fixedText">요즘 손이 안 가는 것, 사놓고 <br>전시만 하는 것, 산 걸 까먹은 것•••<br>생각나는 만큼 적어보자</div>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+  <script>
+
+
+
+    const { Engine, Render, Runner, World, Bodies, Events } = Matter;
+
+    const width = 700;
+    const height = 500;
+
+    const engine = Engine.create();
+    const world = engine.world;
+
+    const render = Render.create({
+      element: document.getElementById('boxArea'),
+      engine: engine,
+      options: {
+        width: width,
+        height: height,
+        wireframes: false,
+        background: '#fff'
+      }
+    });
+
+    Render.run(render);
+    Runner.run(Runner.create(), engine);
+
+    // 벽 
+    const walls = [
+      Bodies.rectangle(width / 2, height + 20, width, 40, { isStatic: true }), // 바닥
+      Bodies.rectangle(-20, height / 2, 40, height, { isStatic: true }),       // 왼쪽
+      Bodies.rectangle(width + 20, height / 2, 40, height, { isStatic: true }) // 오른쪽
+    ];
+    World.add(world, walls);
+
+    const input = document.getElementById('inputBox');
+    const boxes = [];
+
+        let isComposing = false;
+
+input.addEventListener('compositionstart', () => {
+  isComposing = true;
+});
+
+input.addEventListener('compositionend', () => {
+  isComposing = false;
+});
+
+// 핵심: keyup에서 처리 + 한글 입력 중일 땐 무시
+input.addEventListener('keyup', function (e) {
+  if (e.key === 'Enter' && !isComposing) {
+    const text = input.value.trim();
+    if (text) {
+      createTextBox(text);
+      input.value = '';
+    }
+  }
+});
+
+
+    function createTextBox(text) {
+  const lineHeight = 20;           // 줄당 높이
+  const maxCharsPerLine = 5;       // 5글자마다 줄바꿈
+  const lines = text.match(new RegExp(`.{1,${maxCharsPerLine}}`, 'g')) || [];
+  const numLines = lines.length;
+
+  const boxWidth = 100 + Math.random() * 80;  // 랜덤 너비 (너무 작으면 텍스트 넘침)
+  const boxHeight = numLines * lineHeight + 20; // 줄 수 * 줄간격 + 패딩
+
+  const x = Math.random() * (700 - boxWidth) + boxWidth / 2;
+  const y = -50;
+
+  const box = Matter.Bodies.rectangle(x, y, boxWidth, boxHeight, {
+    restitution: 0.3,
+    friction: 0.8,
+    chamfer: {radius: 10},
+    render: {
+      fillStyle: getRandomColor(),
+      lineWidth: 0,
+    }
+  });
+
+  box.label = text;
+
+  Matter.World.add(world, box);
+  boxes.push(box);
+}
+
+
+    function getRandomColor() {
+      const colors = ['#FBC02D', '#36bcff', '#FFEB3B', '#FF5722', '#F2BBDF', '#009688', '#FF4081', '#536DFE'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    Matter.Events.on(render, 'afterRender', function () {
+  const context = render.context;
+  context.font = '16px GmarketSansMedium';
+  context.fillStyle = '#000';
+  context.textAlign = 'center';
+  context.textBaseline = 'middle';
+
+  boxes.forEach(box => {
+    const { x, y } = box.position;
+    const angle = box.angle;
+
+    context.save(); // 현재 상태 저장
+    context.translate(x, y); // 박스 중심으로 이동
+    context.rotate(angle);   // 박스 회전 각도만큼 회전
+    wrapText(context, box.label, 0, 0, 160, 18); // (0, 0)을 기준으로 텍스트 그리기
+    context.restore(); // 이전 상태 복원 (회전 안 된 상태로 돌아감)
+  });
+});
+
+
+      function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const words = text.match(/.{1,5}/g); // 5자 단위 줄바꿈
+    if (!words) return;
+
+    let offset = y - ((words.length - 1) * lineHeight) / 2;
+    for (let i = 0; i < words.length; i++) {
+      ctx.fillText(words[i], x, offset + i * lineHeight);
+    }
+  }
+
+  </script>
+</body>
+</html>

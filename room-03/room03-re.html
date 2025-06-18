@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="bg">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>끝</title>
+	<link rel="stylesheet" href="../css/room03-re.css" >
+</head>
+<body>
+	<div class="wrap">
+		<img class="center" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDl5OTQya3h3NW5rajBsYTVnejBpcmszeWVsaHhza3A1emxxY2YzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7aQ21bruxszHmRW/giphy.gif">
+
+		<img id="resultImage" src="" alt="결과 이미지" class="chara" />
+
+		<p class="s-bubble b1">모든 걱정과 근심이 시원~하게 다 타서 사라지면 좋겠다는 마음을 담아봤어.</p>
+
+
+		<p class="s-bubble b2">하지만 결국은 피할 수 없는, 마주봐야 하는 문제들일 거야. </p>
+
+
+		<p class="s-bubble b3 ">너무너무 피하고 싶더라도, <span>다 불태워주마~</span> 하는 마음으로 덤벼보길 바라. 아자아자!! </p>
+
+
+		<div class="popup click" onclick="myFunction()"> 당신을 위한 조언
+  			<span class="popuptext" id="myPopup"></span>
+		</div>
+
+
+        <a href="../index.html" class="button button-b dragx">
+            처음으로 돌아가기
+
+        </a>
+
+
+
+
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+		    const imagePath = localStorage.getItem('resultImage');
+		    const img = document.getElementById('resultImage');
+		    if (imagePath && img) {
+		      img.src = imagePath;
+		    } else {
+		      console.warn('이미지 경로 없음 또는 <img> 태그를 찾을 수 없음');
+		    }
+		  });
+
+
+		function myFunction() {
+		  var popup = document.getElementById("myPopup");
+		  popup.classList.toggle("show");
+}
+
+
+
+	document.addEventListener('DOMContentLoaded', (event) => {
+    console.log("DOM fully loaded and parsed"); // 확인용 로그
+
+    // 1. localStorage에서 저장된 결과 유형 가져오기
+    const resultType = localStorage.getItem('resultType');
+    console.log("localStorage에서 가져온 결과 유형:", resultType); 
+
+    
+    const popupTexts = {
+        A: "<b>비현실적 낙관주의형</b>은 어떤 일을 할 때 얼마의 시간이 걸릴지에 대한 처음 생각과 실제로 그 일을 끝내는 데 소요된 시간을 비교하며 다음과 같은 질문에 답하는 오답노트를 쓰는 것이 좋대! <br><br>1. 이 오차가 어떻게 느껴지는가? <br>2. 그 일을 예상 시간 안에 마치기 어려웠던 이유는 구체적으로 무엇인가? <br>3. 일 자체의 속성과 관련된 이유는? <br>4. 그 일을 할 때 당신의 상태와 관련된 이유는?",
+        
+        B: "자기비난형은 당위가 아니라 ‘~하고 싶다’, ‘~한 사람이 되고 싶다’와 같은 어미가 붙는 “가치”를 생각하며 스스로의 목소리에 귀를 기울이면 좋대. 회피 욕구에 가려진 스스로의 성장 동기를 생각하며 자신을 믿어보자!",
+
+        C: "현실저항형은 자율성 욕구 충족이 가장 중요하대. 꾸물거리면서 반항하는 상태는 결국 내가 원하는 결과를 가져올 수 없다는 것을 깨닫고, 그에서 벗어나 자신의 진정한 목표를 다잡아 전념해보자!",
+
+        D: "목표를 달성하려 할 때 우리는 보통 만족스러운 결과를 얻기 위해 성취하려는 노력인 향상 초점과 불만족스러운 결과를 예방하기 위해 상황을 유지하려는 노력인 예방 초점 두 가지 중 하나의 방향을 선택하는데, 완벽주의자는 두 마리 토끼를 모두 잡고 싶어하는 경향이 강하니 판단의 기준을 잡는 것이 좋대.",
+
+        E: "자극추구형은 질리더라도 섣불리 포기하지 말고, 다양한 방식으로 처음에 하고자 하는 것을 계속해나가면서 다양한 재미를 탐구해보는 것이 좋대. 포기할까하는 유혹은 아무것도 하지 않음으로써 실패도 성공도 하지 않고, 이로써 잠재력이 있는 상태로 머무르고 싶어서 그러한 유혹에 빠지는 거래. 미뤄도 될 것 같고, 지금은 때가 아니라는 기분을 믿으면 안 돼!"
+        
+    };
+
+    
+    const popupElement = document.getElementById('myPopup'); // 팝업 내용 요소의 ID
+
+    // 4. 결과 유형에 따라 팝업 내용 설정
+    if (popupElement) { // 팝업 요소가 존재하는지 확인
+        if (resultType && popupTexts[resultType]) {
+            // localStorage에 결과 유형이 있고, 해당 유형에 대한 텍스트가 정의되어 있다면
+            popupElement.innerHTML = popupTexts[resultType]; // 팝업 내용 설정
+            console.log("팝업 내용 설정 완료:", popupTexts[resultType]); // 확인용 로그
+        } else {
+            // 결과 유형을 찾지 못했거나 정의되지 않은 경우 기본 메시지 설정
+            popupElement.innerHTML = "퀴즈 결과를 불러오지 못했습니다.";
+            console.warn("결과 유형을 찾을 수 없거나 팝업 텍스트가 정의되지 않았습니다.", resultType); // 경고 로그
+        }
+    } else {
+        console.error("ID가 'myPopup'인 팝업 요소를 찾을 수 없습니다."); // 오류 로그
+    }
+
+    
+
+    function togglePopup() {
+      var popup = document.getElementById("myPopup");
+      if (popup) { // 팝업 요소가 존재하는지 다시 확인
+          popup.classList.toggle("show");
+      }
+    }
+
+    const textTrigger = document.getElementById('myTextTrigger'); // 클릭할 텍스트 요소의 ID
+
+            if (textTrigger) { // 텍스트 요소가 존재하는지 확인
+                textTrigger.addEventListener('click', function() {
+                    togglePopup(); // 텍스트 클릭 시 팝업 토글 함수 호출
+                });
+            } else {
+                console.error("ID가 'myTextTrigger'인 텍스트 요소를 찾을 수 없습니다.");
+    }
+    
+
+}); 
+
+		
+	</script>
+
+
+</div>
+
+</body>
+
+<footer>
+	
+비움의 집&copy;2025 남현정
+	
+</footer>
+
+</html>

@@ -1,0 +1,273 @@
+	html{word-break: keep-all;}
+	footer{color:ghostwhite; 
+		font-family: 'GmarketSansLight';
+		text-align: center;
+		font-size: 1.2rem;
+		
+		padding: 50px;
+		padding-bottom: 90px;
+
+		position: absolute;
+			transform: 
+			translateX(-50%);
+		left: 50%;
+		bottom: -70%;
+
+	}
+
+	b{font-family:'GmarketSansMedium' }
+
+	
+	.wrap{width:800px; margin:auto;}
+
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') 
+      format('opentype');
+    font-weight: normal;
+    font-style: normal;}
+
+
+
+.bg{	
+	background: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDl5OTQya3h3NW5rajBsYTVnejBpcmszeWVsaHhza3A1emxxY2YzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7aQ21bruxszHmRW/giphy.gif);
+		background-size: 12%;
+		background-attachment: fixed;
+		background-position: center;
+
+	}
+
+	p{font-size: 19px}
+
+	.center{position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		    
+		    width: 1000px; height: auto;
+		    z-index: 0;
+
+		    border-radius: 15px;
+		}
+
+	.s-bubble {	    
+		background: #000;
+		border-radius: .4em;
+		padding: 18px 30px;
+
+		width: 350px;
+
+		font-family: 'GmarketSansMedium';
+		line-height: 1.7rem;
+		color: #F0F8FF;
+
+		z-index: 10;
+
+
+	}
+
+
+	.s-bubble:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+
+		width: 0;
+		height: 0;
+
+		border: 18px solid transparent;
+		border-top-color: #000;
+		border-bottom: 0;
+		
+		margin-left: -11px;
+		margin-bottom: -11px;
+
+		z-index: 10;
+
+		
+
+
+	}
+
+
+	.b1{position: absolute;
+		z-index: 10;
+		    top: 20%;
+		    left: 29%;
+		    }
+
+	.b2{position: absolute;
+		z-index: 10;
+		    top: 40%;
+		    left: 48%;
+		    }
+
+	.b3{position: absolute;
+		z-index: 10;
+		top: 68%;
+		left: 50%;
+	    transform: translateX(-50%);
+	    text-align: center;
+
+
+		    }
+
+
+
+	.chara{position: absolute;
+
+		z-index: 15;
+		width: 600px; 
+		height: auto;
+		
+		    top: 71%;
+		    left: 50%;
+		 	transform: translateX(-50%);
+
+		}
+
+
+	.popup {
+
+	  position: relative;
+	  display: inline-block;
+	  cursor: pointer;
+	  user-select: none;
+	}
+
+	/* The actual popup */
+	.popup .popuptext {
+	  visibility: hidden;
+	  width: 300px;
+	  
+	  color: #fff;
+	  text-shadow: 0 0 0.5em #000 ;
+	  border: 1px solid white;
+
+	  
+	  background-color: rgba(255, 255, 255, 0.27);
+		backdrop-filter: blur(8px);
+		filter: drop-shadow(0 0 0.5rem #868686);
+		box-shadow: 0 0 15px #fff;
+
+
+	  text-align: left;
+	  line-height: 1.5rem;
+
+	  border-radius: 12px;
+	  padding: 15px 25px;
+	  position: absolute;
+	  z-index: 20;
+
+	  top: -184%;
+	  left: 120%;
+	  transform: translateY(-50%);
+	}
+
+	
+	
+	
+	.popup .show {
+	  visibility: visible;
+	  -webkit-animation: fadeIn 0.5s;
+	  animation: fadeIn 0.5s;
+
+	}
+
+
+	@-webkit-keyframes fadeIn {
+	  from {opacity: 0;} 
+	  to {opacity: 1;}
+	}
+
+	@keyframes fadeIn {
+	  from {opacity: 0;}
+	  to {opacity:1 ;}
+	}
+
+
+
+	.click{position: absolute;
+
+		z-index: 15;
+		width: 120px; height: auto;
+		
+		    top: 128%;
+		    left: 50%;
+		    transform: translateX(-50%);
+
+		background-color: ghostwhite;
+		box-shadow: 0px 0px 11px 4px #cfcfcf;
+
+		color: black;
+		text-align: center;
+		font-family: 
+		'GmarketSansLight';
+
+		padding: 10px 20px;
+		border-radius: 40px;
+		cursor: pointer;
+		}
+
+
+
+	.button {
+            color: #191970;
+            border-radius: 10px;
+
+            position: absolute;
+            z-index: 25;
+			
+		    top: 140%;
+		    left: 70%;
+		    transform: translateX(-50%);
+
+
+		    text-align: center;
+			font-family: 
+			'GmarketSansMedium';
+			font-size: 0.92rem;
+
+			text-decoration: none;
+
+			background-color: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(10px);
+		filter: drop-shadow(0 0 0.5rem #868686);
+        }
+
+        .button:hover {
+            color: #fff;
+            transition: all 1s;
+            box-shadow: 0 0 20px #fff;
+
+        }
+
+        .button-b {
+        	background-color: rgba(255, 255, 255, 0.2);
+        	backdrop-filter: blur(10px);
+		filter: drop-shadow(0 0 0.5rem #868686);
+
+        	padding: 15px 25px;
+        	width: 120px;
+        	margin: auto;
+        	cursor: pointer;
+        }
+
+        .dragx{user-select: none;}

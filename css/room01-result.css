@@ -1,0 +1,236 @@
+
+@font-face {
+	    font-family: 'GmarketSansLight';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('opentype');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+@font-face {
+	    font-family: 'GmarketSansMedium';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('opentype');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+@font-face {
+	    font-family: 'GmarketSansBold';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') 
+	    	format('opentype');
+	    font-weight: normal;
+	    font-style: normal;
+	} 
+
+		div{justify-content: center;}
+
+
+
+		html{font-family: 'GmarketSansMedium';
+		margin: 0;
+		word-break: keep-all;
+		}
+		h1{font-family: 'GmarketSansBold';
+		 font-size: 2.3rem; }
+		h2{font-family: 'GmarketSansMedium';
+		 font-size: 1.6rem; text-align: left}
+
+		p{font-family: 'GmarketSansLight';
+		 font-size: 18px;
+		 margin: 0; 
+		}
+		body,h1,h2,p{margin: 0; }
+		body{position: relative;}
+
+		body {
+		background: #f0f0f0;
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 80vh;
+	    background-color: transparent;
+	    font-family: 'GmarketSansMedium';
+	    padding: 100px 200px;
+	    box-sizing: border-box; 
+
+
+	    position: absolute;
+	    top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin-bottom: 40px;
+	}
+
+		a{
+		display: flex;
+		
+		align-items: center;
+		gap: 10px;
+
+		text-decoration:none;
+		color: white;
+		
+		border-radius: 10px;
+		padding: 5px 15px;
+		background-color: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+		filter: drop-shadow(0 0 0.5rem #868686);
+
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 20;
+	}
+
+		.next-room-link p{
+			margin: 0;
+		    font-size: 16px;
+		    color: white;
+		    font-family: 'GmarketSansMedium';
+
+
+		}
+
+		.next-room-link:hover {
+            
+            transition: all 0.7s;
+            box-shadow: 0 0 14px #202020;
+
+        }
+
+		.wrap{width:600px; margin:auto;}
+
+
+	#result-image, .R-img {
+		position: absolute;
+		top: 50%;
+    	left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+		width: 380px;
+		filter: drop-shadow(0 0 0.5rem #ffffff)
+
+}
+
+	.mirror {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 5;
+		width: 440px;
+		filter: drop-shadow(0 0 0.6rem #ffffff)
+}
+
+
+	#result-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 60%;
+		max-width: 600px;
+	    position: relative;
+	    text-align: center;
+	}
+
+	#result-container h2 {
+	    color: #191970;
+	    margin-bottom: 20px;
+	    filter: drop-shadow(0 0 0.5rem #ffffff)
+
+	}
+
+	.result-title {
+		color: #ffffff;
+    margin-bottom: 10px; 
+    filter: drop-shadow(0 0 0.5rem #000000);
+    text-align: center;
+    width: 100%; 
+    min-width: 500px ;
+    max-width: 500px;
+
+	}
+
+	#result-text {
+	    color: #000;
+	    margin-bottom: 20px;
+	    text-align: center;
+	    width: 100%;
+	    min-width: 500px ;
+    	max-width: 500px;
+
+
+	    filter: drop-shadow(0 0 0.5rem #fff);
+	    
+	}
+
+	.add{
+		padding: 20px 35px;
+		margin-top: 10px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    min-width: 500px ;
+    max-width: 500px;
+    min-height: 200px ;
+
+    box-sizing: border-box;
+    text-align: left;
+    line-height: 1.9rem;
+
+    box-shadow: inset 0px 0px 26px 2px #fff;
+
+
+
+
+
+
+	}
+
+
+
+
+	.bg{background: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTFlZGU2YWYwNTA0OTE0MmYzZjlmODNjMzY5YTFjZTA0MDc4YzEyNyZlcD12MV91c2VyX2Zhdm9yaXRlcyZjdD1n/x1U9NrQlTcZS8/giphy.gif);
+			background-size: 100%;
+			background-attachment: fixed;
+			background-position: center;
+			}
+
+	.left-collum {
+
+		width: 50%;
+    flex-shrink: 0; 
+    
+    position: relative; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    box-sizing: border-box;
+
+	}
+
+
+	.right-collum {
+		width: 50%;
+    flex-shrink: 0; 
+   
+    position: relative; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    box-sizing: border-box;
+
+
+	}
+
+
+	.image-overlap-container {
+    position: relative; 
+    width: 400px; 
+    height: 400px; 
+     
+}
+
+
+
+

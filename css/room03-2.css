@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') 
+      format('opentype');
+    font-weight: normal;
+    font-style: normal;}
+
+
+	.p01{
+		font-family: 
+		'GmarketSansLight';
+		font-size: 20px;
+		position: fixed;
+	    top: 100px;
+	    left: 50%;
+	    transform: translateX(-50%);
+
+	}
+
+
+	html{background-color: #f5f5f5; 
+	word-break: keep-all;}
+
+
+
+	input[type="text"]{
+	    margin-top: 10px;
+	
+		border: none;
+		border-bottom: 1.5px solid #000;
+		background-color: transparent;
+		padding: 10px;
+		width: 300px;
+		font-family: 
+		'GmarketSansMedium';
+
+		color: #252322;
+		font-size: 20px;
+		outline-width:0px;
+		
+	}
+		
+	
+
+	a {cursor: url('../img/zippo.png'), auto; 
+
+	  font-family: 
+		'GmarketSansLight';
+		text-decoration: none;
+
+	}
+
+
+	.t-box{
+		position: fixed;
+	    top: 300px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    z-index: 2;
+	}
+
+
+	.s-box{
+		position: fixed;
+	    top: 400px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    z-index: 2;
+	}
+
+	.tp{
+		position: fixed;
+	    top: 200px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    width:800px;
+	    height: auto;
+	    z-index: 0;
+
+
+	}
+
+
+	
